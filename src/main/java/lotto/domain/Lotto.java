@@ -3,7 +3,6 @@ package lotto.domain;
 import java.util.List;
 
 public class Lotto {
-
     public static final int MAX_LOTTO_COUNT = 6;
     private final List<Integer> numbers;
 
