@@ -2,7 +2,7 @@ package lotto.domain;
 
 public class Money {
     private static final int UNIT = 1000;
-    private final long amount;
+    private final int amount;
 
     public Money(int amount) {
         validateIsAmountInThousands(amount);
@@ -13,5 +13,9 @@ public class Money {
         if (amount < UNIT || amount % UNIT != 0) {
             throw new IllegalArgumentException("[ERROR] 금액은 1000원 단위여야 합니다.");
         }
+    }
+
+    public int ticketCount() {
+        return (amount / UNIT);
     }
 }
