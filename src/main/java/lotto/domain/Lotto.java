@@ -26,6 +26,16 @@ public class Lotto {
         }
     }
 
+    public long matchCount(Lotto other) {
+        return numbers.stream()
+                .filter(other.numbers::contains)
+                .count();
+    }
+
+    public boolean contains(int number) {
+        return numbers.contains(number);
+    }
+
     private void validateIsValidNumberCount(List<Integer> numbers) {
         if (numbers.size() != MAX_LOTTO_COUNT) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
