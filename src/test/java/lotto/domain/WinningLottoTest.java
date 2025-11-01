@@ -10,4 +10,10 @@ class WinningLottoTest {
                 new Lotto(List.of(1, 2, 3, 4, 5, 6)), 7);
     }
 
+    @Test
+    void 보너스_번호가_로또_번호와_겹치면_예외가_발생한다() {
+        WinningLotto winningLotto = new WinningLotto(
+                new Lotto(List.of(1, 2, 3, 4, 5, 6)), 7);
+    }
+
 }
