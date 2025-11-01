@@ -1,6 +1,7 @@
 package lotto.policy.random;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import java.util.Collections;
 import java.util.List;
 import lotto.policy.NumberGenerator;
 
@@ -11,6 +12,8 @@ public class RandomNumberGenerator implements NumberGenerator {
 
     @Override
     public List<Integer> generate() {
-        return Randoms.pickUniqueNumbersInRange(START_INCLUSIVE, END_INCLUSIVE, COUNT);
+        List<Integer> numbers = Randoms.pickUniqueNumbersInRange(START_INCLUSIVE, END_INCLUSIVE, COUNT);
+        Collections.sort(numbers);
+        return numbers;
     }
 }
