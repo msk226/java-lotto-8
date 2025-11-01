@@ -21,7 +21,7 @@ public class ConsoleOutputPresenter implements OutputPresenter {
     public void printPurchased(List<Lotto> tickets) {
         System.out.printf((MESSAGE_PURCHASED) + "%n", tickets.size());
         for (Lotto t : tickets) {
-            System.out.println(t.numbers());
+            System.out.println(t.getNumbers());
         }
     }
 

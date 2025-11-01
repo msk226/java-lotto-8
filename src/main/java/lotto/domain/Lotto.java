@@ -34,8 +34,8 @@ public class Lotto {
         return numbers.contains(number);
     }
 
-    public String numbers() {
-        return numbers.toString();
+    public List<Integer> getNumbers() {
+        return List.copyOf(numbers);
     }
 
     private void validateIsValidNumberCount(List<Integer> numbers) {
