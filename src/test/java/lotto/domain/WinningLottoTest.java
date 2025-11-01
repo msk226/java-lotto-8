@@ -30,6 +30,13 @@ class WinningLottoTest {
     }
 
     @Test
+    void 보너스_번호가_범위를_벗어나면_예외가_발생한다() {
+        assertThatThrownBy(() -> new WinningLotto(
+                new Lotto(List.of(1, 2, 3, 4, 5, 6)), 46))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
     void 보너스_번호가_로또_번호와_겹치면_예외가_발생한다() {
         assertThatThrownBy(() -> new WinningLotto(
                 new Lotto(List.of(1, 2, 3, 4, 5, 6)), 6))
