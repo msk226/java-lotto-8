@@ -8,17 +8,17 @@ import lotto.domain.LottoResult;
 import lotto.domain.Money;
 import lotto.domain.WinningLotto;
 import lotto.domain.enums.Rank;
-import lotto.io.input.InputView;
+import lotto.io.input.InputReader;
 import lotto.io.input.LottoParser;
-import lotto.io.output.OutputView;
+import lotto.io.output.OutputPresenter;
 import lotto.policy.NumberGenerator;
 
 public class LottoProcessor {
-    private final InputView input;
-    private final OutputView output;
+    private final InputReader input;
+    private final OutputPresenter output;
     private final LottoMachine machine;
 
-    public LottoProcessor(InputView input, OutputView output, NumberGenerator generator) {
+    public LottoProcessor(InputReader input, OutputPresenter output, NumberGenerator generator) {
         this.input = input;
         this.output = output;
         this.machine = new LottoMachine(generator);

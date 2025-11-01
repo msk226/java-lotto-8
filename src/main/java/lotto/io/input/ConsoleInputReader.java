@@ -2,7 +2,7 @@ package lotto.io.input;
 
 import camp.nextstep.edu.missionutils.Console;
 
-public class InputView {
+public class ConsoleInputReader implements InputReader {
     private static final String MESSAGE_PURCHASE_AMOUNT = "구입금액을 입력해 주세요.";
     private static final String MESSAGE_WINNING_NUMBERS = "\n당첨 번호를 입력해 주세요.";
     private static final String MESSAGE_BONUS_NUMBER = "\n보너스 번호를 입력해 주세요.";

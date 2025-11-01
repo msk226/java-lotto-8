@@ -6,7 +6,7 @@ import lotto.domain.Lotto;
 import lotto.domain.LottoResult;
 import lotto.domain.enums.Rank;
 
-public class OutputView {
+public class ConsoleOutputPresenter implements OutputPresenter {
     public static final int DEFAULT_VALUE = 0;
     private static final String MESSAGE_PURCHASED = "%d개를 구매했습니다.";
     private static final String MESSAGE_STATISTICS_HEADER = "당첨 통계";
