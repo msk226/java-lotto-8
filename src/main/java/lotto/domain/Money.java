@@ -18,4 +18,8 @@ public class Money {
     public int ticketCount() {
         return (amount / UNIT);
     }
+
+    public int amount() {
+        return amount;
+    }
 }
