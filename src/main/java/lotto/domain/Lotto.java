@@ -1,5 +1,9 @@
 package lotto.domain;
 
+import static lotto.common.exception.ExceptionMessage.DUPLICATE_LOTTO_NUMBERS;
+import static lotto.common.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_COUNT;
+import static lotto.common.exception.ExceptionMessage.LOTTO_NUMBER_OUT_OF_RANGE;
+
 import java.util.List;
 
 public class Lotto {
@@ -36,21 +40,21 @@ public class Lotto {
 
     private void validateIsValidNumberCount(List<Integer> numbers) {
         if (numbers.size() != MAX_LOTTO_COUNT) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");
+            throw new IllegalArgumentException(INVALID_LOTTO_NUMBER_COUNT);
         }
     }
 
     public void validateNoDuplicateNumbers(List<Integer> numbers) {
         long distinctCount = numbers.stream().distinct().count();
         if (distinctCount != numbers.size()) {
-            throw new IllegalArgumentException("[ERROR] 로또 번호에 중복된 숫자가 있을 수 없습니다.");
+            throw new IllegalArgumentException(DUPLICATE_LOTTO_NUMBERS);
         }
     }
 
     private void validateIsNumbersInRange(List<Integer> numbers) {
         for (Integer num : numbers) {
             if (num < MIN_LOTTO_NUMBER || num > MAX_LOTTO_NUMBER) {
-                throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+                throw new IllegalArgumentException(LOTTO_NUMBER_OUT_OF_RANGE);
             }
         }
     }

@@ -1,5 +1,10 @@
 package lotto.domain;
 
+import static lotto.common.exception.ExceptionMessage.BONUS_NUMBER_CANNOT_DUPLICATE;
+import static lotto.common.exception.ExceptionMessage.BONUS_NUMBER_OUT_OF_RANGE;
+import static lotto.domain.Lotto.MAX_LOTTO_NUMBER;
+import static lotto.domain.Lotto.MIN_LOTTO_NUMBER;
+
 import lotto.domain.enums.Rank;
 
 public class WinningLotto {
@@ -14,15 +19,15 @@ public class WinningLotto {
     }
 
     public void validateBonusNumberInRange(int bonusNumber) {
-        if (bonusNumber < Lotto.MIN_LOTTO_NUMBER || bonusNumber > Lotto.MAX_LOTTO_NUMBER) {
+        if (bonusNumber < MIN_LOTTO_NUMBER || bonusNumber > MAX_LOTTO_NUMBER) {
             throw new IllegalArgumentException(
-                    "[ERROR] 보너스 번호는 " + Lotto.MIN_LOTTO_NUMBER + "부터 " + Lotto.MAX_LOTTO_NUMBER + " 사이의 숫자여야 합니다.");
+                    String.format(BONUS_NUMBER_OUT_OF_RANGE, MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER));
         }
     }
 
     public void validateWinningLottoHasDuplicateBonusNumber(Lotto winning, int bonusNumber) {
         if (winning.contains(bonusNumber)) {
-            throw new IllegalArgumentException("[ERROR] 보너스 번호는 당첨 번호와 중복될 수 없습니다.");
+            throw new IllegalArgumentException(BONUS_NUMBER_CANNOT_DUPLICATE);
         }
     }
 

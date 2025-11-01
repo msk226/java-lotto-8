@@ -1,5 +1,8 @@
 package lotto.io.input;
 
+import static lotto.common.exception.ExceptionMessage.EMPTY_INPUT;
+import static lotto.common.exception.ExceptionMessage.ONLY_NUMBERS_ALLOWED;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,7 +12,7 @@ public abstract class LottoParser {
 
     public static List<Integer> parseNumbersByComma(String input) {
         if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 입력이 비어있습니다.");
+            throw new IllegalArgumentException(EMPTY_INPUT);
         }
 
         try {
@@ -18,18 +21,18 @@ public abstract class LottoParser {
                     .map(Integer::parseInt)
                     .toList();
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자만 입력해야 합니다.");
+            throw new IllegalArgumentException(ONLY_NUMBERS_ALLOWED);
         }
     }
 
     public static int parseSingleInt(String input) {
         if (input == null || input.isBlank()) {
-            throw new IllegalArgumentException("[ERROR] 입력이 비어있습니다.");
+            throw new IllegalArgumentException(EMPTY_INPUT);
         }
         try {
             return Integer.parseInt(input.trim());
         } catch (NumberFormatException e) {
-            throw new IllegalArgumentException("[ERROR] 숫자만 입력해야 합니다.");
+            throw new IllegalArgumentException(ONLY_NUMBERS_ALLOWED);
         }
     }
 }

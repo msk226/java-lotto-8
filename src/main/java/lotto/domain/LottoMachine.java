@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 import lotto.policy.NumberGenerator;
 
 public class LottoMachine {
+    public static final int START_INCLUSIVE = 0;
     private final NumberGenerator generator;
 
     public LottoMachine(NumberGenerator generator) {
@@ -16,7 +17,7 @@ public class LottoMachine {
     }
 
     public List<Lotto> createMany(int count) {
-        return IntStream.range(0, count)
+        return IntStream.range(START_INCLUSIVE, count)
                 .mapToObj(i -> create())
                 .toList();
     }
