@@ -30,6 +30,12 @@ public class Lotto {
         return numbers.contains(number);
     }
 
+    public String numbers() {
+        return numbers.stream()
+                .map(numbers -> numbers + ", ")
+                .toString();
+    }
+
     private void validateIsValidNumberCount(List<Integer> numbers) {
         if (numbers.size() != MAX_LOTTO_COUNT) {
             throw new IllegalArgumentException("[ERROR] 로또 번호는 6개여야 합니다.");

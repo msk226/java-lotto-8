@@ -30,6 +30,10 @@ public class LottoResult {
         return (double) totalPrize() / spent.amount() * PERCENTAGE;
     }
 
+    public Map<Rank, Integer> view() {
+        return Map.copyOf(counts);
+    }
+
     private void initialize() {
         for (Rank r : Rank.values()) {
             counts.put(r, DEFAULT_VALUE);
