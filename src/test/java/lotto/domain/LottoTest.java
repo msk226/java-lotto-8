@@ -37,13 +37,6 @@ class LottoTest {
     }
 
     @Test
-    void 보너스_번호가_로또_번호와_겹치면_예외가_발생한다() {
-        Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
-        assertThatThrownBy(() -> lotto.hasDuplicateBonusNumber(6))
-                .isInstanceOf(IllegalArgumentException.class);
-    }
-
-    @Test
     void 다른_번호와_비교하여_일치하는_번호의_개수를_반환한다() {
         Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
         Lotto otherLotto = new Lotto(List.of(4, 5, 6, 7, 8, 9));

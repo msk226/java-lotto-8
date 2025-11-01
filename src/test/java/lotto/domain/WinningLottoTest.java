@@ -36,6 +36,13 @@ class WinningLottoTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @Test
+    void 보너스_번호가_당첨_번호와_중복_되는_경우_예외가_발생한다() {
+        assertThatThrownBy(() -> new WinningLotto(
+                new Lotto(List.of(10, 11, 12, 13, 14, 15)), 10))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
     @ParameterizedTest(name = "{index} ⇒ myNumbers={0}, expectedRank={1}")
     @MethodSource("provideLottoCases")
     void 로또_번호를_통해_내_로또가_몇_개_일치하는지_확인할_수_있다(
