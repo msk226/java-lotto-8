@@ -53,7 +53,7 @@ class LottoResultTest {
                 Rank.FIFTH, Rank.FIFTH, Rank.FOURTH, Rank.THIRD, Rank.SECOND, Rank.MISS
         ));
         double yield = result.yield(new Money(9000));
-        assertThat(yield).isEqualTo(350666.67);
+        assertThat(yield).isEqualTo(350666.7);
     }
 
     @Test
@@ -62,7 +62,7 @@ class LottoResultTest {
                 Rank.FIFTH, Rank.FIFTH, Rank.FIFTH
         ));
         double yield = result.yield(new Money(5000));
-        assertThat(yield).isEqualTo(300.00);
+        assertThat(yield).isEqualTo(300.0);
     }
 
     @Test
@@ -71,7 +71,7 @@ class LottoResultTest {
                 Rank.FOURTH, Rank.FOURTH
         ));
         double yield = result.yield(new Money(39000));
-        assertThat(yield).isEqualTo(256.41);
+        assertThat(yield).isEqualTo(256.4);
     }
 
     @Test
@@ -80,7 +80,7 @@ class LottoResultTest {
                 Rank.MISS, Rank.MISS, Rank.MISS
         ));
         double yield = result.yield(new Money(3000));
-        assertThat(yield).isEqualTo(0.00);
+        assertThat(yield).isEqualTo(0.0);
     }
 
     @Test
@@ -89,7 +89,7 @@ class LottoResultTest {
                 Rank.FIFTH, Rank.FIFTH
         ));
         double yield = result.yield(new Money(10000));
-        assertThat(yield).isEqualTo(100.00);
+        assertThat(yield).isEqualTo(100.0);
     }
 
     @Test
@@ -98,7 +98,7 @@ class LottoResultTest {
                 Rank.FIFTH // 5,000원
         ));
         double yield = result.yield(new Money(1200000));
-        assertThat(yield).isEqualTo(0.42);
+        assertThat(yield).isEqualTo(0.4);
     }
 
     @ParameterizedTest(name = "{index} ⇒ ranks={0}, expectedPrize={1}")
