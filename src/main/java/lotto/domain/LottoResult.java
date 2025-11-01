@@ -15,6 +15,12 @@ public class LottoResult {
         update(ranks);
     }
 
+    public long totalPrize() {
+        return counts.entrySet().stream()
+                .mapToLong(e -> (long) e.getKey().prize() * e.getValue())
+                .sum();
+    }
+
     private void initialize() {
         for (Rank r : Rank.values()) {
             counts.put(r, DEFAULT_VALUE);
