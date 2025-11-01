@@ -11,7 +11,7 @@ public class ConsoleOutputPresenter implements OutputPresenter {
     private static final String MESSAGE_PURCHASED = "%d개를 구매했습니다.";
     private static final String MESSAGE_STATISTICS_HEADER = "당첨 통계";
     private static final String MESSAGE_DIVIDER = "---";
-    private static final String MESSAGE_YIELD_FORMAT = "총 수익률은 %.1f%%입니다.%n";
+    private static final String MESSAGE_YIELD_FORMAT = "총 수익률은 %,.1f%%입니다.%n";
     private static final String MATCH_3 = "3개 일치 (5,000원) - %d개";
     private static final String MATCH_4 = "4개 일치 (50,000원) - %d개";
     private static final String MATCH_5 = "5개 일치 (1,500,000원) - %d개";
