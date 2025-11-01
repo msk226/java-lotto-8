@@ -8,8 +8,8 @@ import lotto.domain.enums.Rank;
 public class LottoResult {
     private static final int DEFAULT_VALUE = 0;
     private static final int ONE = 1;
-    private static final int PERCENTAGE = 100; // 수익률 % 변환용
-    private static final int ROUND_FACTOR = 100; // 소수점 둘째 자리 반올림용
+    private static final int PERCENTAGE = 100;
+    private static final int ROUND_FACTOR = 100;
     private static final double ROUND_DIVISOR = 100.0;
     private final Map<Rank, Integer> counts = new EnumMap<>(Rank.class);
 
