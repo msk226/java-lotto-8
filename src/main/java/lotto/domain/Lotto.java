@@ -31,9 +31,7 @@ public class Lotto {
     }
 
     public String numbers() {
-        return numbers.stream()
-                .map(numbers -> numbers + ", ")
-                .toString();
+        return numbers.toString();
     }
 
     private void validateIsValidNumberCount(List<Integer> numbers) {
