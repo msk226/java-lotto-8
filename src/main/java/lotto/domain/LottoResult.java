@@ -6,9 +6,9 @@ import java.util.Map;
 import lotto.domain.enums.Rank;
 
 public class LottoResult {
-    public static final int DEFAULT_VALUE = 0;
-    public static final int ONE = 1;
-    public static final int PERCENTAGE = 100;
+    private static final int DEFAULT_VALUE = 0;
+    private static final int ONE = 1;
+    private static final int PERCENTAGE = 100;
     private final Map<Rank, Integer> counts = new EnumMap<>(Rank.class);
 
     public LottoResult(List<Rank> ranks) {

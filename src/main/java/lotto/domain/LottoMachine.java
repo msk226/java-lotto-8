@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import lotto.policy.NumberGenerator;
 
 public class LottoMachine {
-    public static final int START_INCLUSIVE = 0;
+    private static final int START_INCLUSIVE = 0;
     private final NumberGenerator generator;
 
     public LottoMachine(NumberGenerator generator) {

@@ -6,7 +6,9 @@ import static lotto.common.exception.ExceptionMessage.ONLY_NUMBERS_ALLOWED;
 import java.util.Arrays;
 import java.util.List;
 
-public abstract class LottoParser {
+public final class LottoParser {
+    private static final String LOTTO_DELIMITER = ",";
+
     private LottoParser() {
     }
 
@@ -16,7 +18,7 @@ public abstract class LottoParser {
         }
 
         try {
-            return Arrays.stream(input.split(","))
+            return Arrays.stream(input.split(LOTTO_DELIMITER))
                     .map(String::trim)
                     .map(Integer::parseInt)
                     .toList();

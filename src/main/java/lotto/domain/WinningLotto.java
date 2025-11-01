@@ -1,9 +1,9 @@
 package lotto.domain;
 
+import static lotto.common.constants.LottoConstants.MAX_LOTTO_NUMBER;
+import static lotto.common.constants.LottoConstants.MIN_LOTTO_NUMBER;
 import static lotto.common.exception.ExceptionMessage.BONUS_NUMBER_CANNOT_DUPLICATE;
 import static lotto.common.exception.ExceptionMessage.BONUS_NUMBER_OUT_OF_RANGE;
-import static lotto.domain.Lotto.MAX_LOTTO_NUMBER;
-import static lotto.domain.Lotto.MIN_LOTTO_NUMBER;
 
 import lotto.domain.enums.Rank;
 

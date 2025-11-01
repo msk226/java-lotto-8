@@ -1,5 +1,8 @@
 package lotto.domain;
 
+import static lotto.common.constants.LottoConstants.LOTTO_COUNT;
+import static lotto.common.constants.LottoConstants.MAX_LOTTO_NUMBER;
+import static lotto.common.constants.LottoConstants.MIN_LOTTO_NUMBER;
 import static lotto.common.exception.ExceptionMessage.DUPLICATE_LOTTO_NUMBERS;
 import static lotto.common.exception.ExceptionMessage.INVALID_LOTTO_NUMBER_COUNT;
 import static lotto.common.exception.ExceptionMessage.LOTTO_NUMBER_OUT_OF_RANGE;
@@ -7,9 +10,6 @@ import static lotto.common.exception.ExceptionMessage.LOTTO_NUMBER_OUT_OF_RANGE;
 import java.util.List;
 
 public class Lotto {
-    public static final int MAX_LOTTO_COUNT = 6;
-    public static final int MIN_LOTTO_NUMBER = 1;
-    public static final int MAX_LOTTO_NUMBER = 45;
 
     private final List<Integer> numbers;
 
@@ -39,7 +39,7 @@ public class Lotto {
     }
 
     private void validateIsValidNumberCount(List<Integer> numbers) {
-        if (numbers.size() != MAX_LOTTO_COUNT) {
+        if (numbers.size() != LOTTO_COUNT) {
             throw new IllegalArgumentException(INVALID_LOTTO_NUMBER_COUNT);
         }
     }

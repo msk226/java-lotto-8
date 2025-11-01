@@ -1,6 +1,6 @@
 package lotto.common.exception;
 
-public abstract class ExceptionMessage {
+public final class ExceptionMessage {
     // domain
     public static final String INVALID_LOTTO_NUMBER_COUNT = "[ERROR] 로또 번호는 6개여야 합니다.";
     public static final String DUPLICATE_LOTTO_NUMBERS = "[ERROR] 로또 번호에 중복된 숫자가 있을 수 없습니다.";
