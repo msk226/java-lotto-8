@@ -12,17 +12,17 @@ public class Money {
         this.amount = amount;
     }
 
-    private static void validateIsAmountInThousands(int amount) {
-        if (amount < UNIT || amount % UNIT != ZERO) {
-            throw new IllegalArgumentException(MONEY_NOT_MULTIPLE_OF_1000);
-        }
-    }
-
     public int ticketCount() {
         return (amount / UNIT);
     }
 
     public int amount() {
         return amount;
+    }
+
+    private void validateIsAmountInThousands(int amount) {
+        if (amount < UNIT || amount % UNIT != ZERO) {
+            throw new IllegalArgumentException(MONEY_NOT_MULTIPLE_OF_1000);
+        }
     }
 }

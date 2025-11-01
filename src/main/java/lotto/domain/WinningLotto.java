@@ -18,23 +18,23 @@ public class WinningLotto {
         this.bonusNumber = bonusNumber;
     }
 
-    public void validateBonusNumberInRange(int bonusNumber) {
+    public Rank match(Lotto lotto) {
+        int matchCount = lotto.matchCount(winning);
+        boolean hasBonusNumber = lotto.contains(bonusNumber);
+
+        return Rank.of(matchCount, hasBonusNumber);
+    }
+
+    private void validateBonusNumberInRange(int bonusNumber) {
         if (bonusNumber < MIN_LOTTO_NUMBER || bonusNumber > MAX_LOTTO_NUMBER) {
             throw new IllegalArgumentException(
                     String.format(BONUS_NUMBER_OUT_OF_RANGE, MIN_LOTTO_NUMBER, MAX_LOTTO_NUMBER));
         }
     }
 
-    public void validateWinningLottoHasDuplicateBonusNumber(Lotto winning, int bonusNumber) {
+    private void validateWinningLottoHasDuplicateBonusNumber(Lotto winning, int bonusNumber) {
         if (winning.contains(bonusNumber)) {
             throw new IllegalArgumentException(BONUS_NUMBER_CANNOT_DUPLICATE);
         }
-    }
-
-    public Rank match(Lotto lotto) {
-        int matchCount = lotto.matchCount(winning);
-        boolean hasBonusNumber = lotto.contains(bonusNumber);
-
-        return Rank.of(matchCount, hasBonusNumber);
     }
 }

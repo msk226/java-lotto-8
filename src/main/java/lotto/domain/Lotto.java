@@ -17,12 +17,6 @@ public class Lotto {
         this.numbers = numbers;
     }
 
-    public void validate(List<Integer> numbers) {
-        validateIsValidNumberCount(numbers);
-        validateNoDuplicateNumbers(numbers);
-        validateIsNumbersInRange(numbers);
-    }
-
     public int matchCount(Lotto other) {
         return (int) numbers.stream()
                 .filter(other.numbers::contains)
@@ -35,6 +29,12 @@ public class Lotto {
 
     public List<Integer> getNumbers() {
         return List.copyOf(numbers);
+    }
+
+    private void validate(List<Integer> numbers) {
+        validateIsValidNumberCount(numbers);
+        validateNoDuplicateNumbers(numbers);
+        validateIsNumbersInRange(numbers);
     }
 
     private void validateIsValidNumberCount(List<Integer> numbers) {
