@@ -24,7 +24,7 @@ public class LottoProcessor {
         this.machine = new LottoMachine(generator);
     }
 
-    private static <T> T retry(Supplier<T> supplier) {
+    static <T> T retry(Supplier<T> supplier) {
         while (true) {
             try {
                 return supplier.get();
@@ -35,35 +35,52 @@ public class LottoProcessor {
     }
 
     public void run() {
-        // 1) 금액 입력 (해당 단계 재시도)
-        Money money = retry(() -> {
+        Money money = readMoneyWithRetry();
+        List<Lotto> tickets = purchaseTickets(money);
+        output.printPurchased(tickets);
+
+        Lotto winning = readWinningWithRetry();
+        WinningLotto winningLotto = readWinningLottoWithRetry(winning);
+
+        LottoResult result = judge(tickets, winningLotto);
+        double yield = result.yield(money);
+
+        printResult(result, yield);
+    }
+
+    private Money readMoneyWithRetry() {
+        return retry(() -> {
             String raw = input.readPurchaseAmount();
             int amount = LottoParser.parseSingleInt(raw);
             return new Money(amount);
         });
+    }
 
-        // 2) 자동 발행
-        List<Lotto> tickets = machine.createMany(money.ticketCount());
-        output.printPurchased(tickets);
+    private List<Lotto> purchaseTickets(Money money) {
+        return machine.createMany(money.ticketCount());
+    }
 
-        // 3) 당첨 번호 입력 (해당 단계 재시도)
-        Lotto winning = retry(() -> {
+    private Lotto readWinningWithRetry() {
+        return retry(() -> {
             String raw = input.readWinningNumbers();
             return new Lotto(LottoParser.parseNumbersByComma(raw));
         });
+    }
 
-        // 4) 보너스 번호 입력 + 검증 (해당 단계 재시도)
-        WinningLotto winningLotto = retry(() -> {
+    private WinningLotto readWinningLottoWithRetry(Lotto winning) {
+        return retry(() -> {
             String raw = input.readBonusNumber();
             int bonus = LottoParser.parseSingleInt(raw);
-            // 보너스 중복/범위 등은 WinningLotto 생성 시 검증됨
             return new WinningLotto(winning, bonus);
         });
+    }
 
-        // 5) 판정/집계/출력
+    private LottoResult judge(List<Lotto> tickets, WinningLotto winningLotto) {
         List<Rank> ranks = tickets.stream().map(winningLotto::match).toList();
-        LottoResult result = new LottoResult(ranks);
-        double yield = result.yield(money);
+        return new LottoResult(ranks);
+    }
+
+    private void printResult(LottoResult result, double yield) {
         output.printStatistics(result, yield);
     }
 }
