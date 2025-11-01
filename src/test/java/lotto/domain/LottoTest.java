@@ -34,4 +34,11 @@ class LottoTest {
         assertThatThrownBy(() -> new Lotto(List.of(1, 2, 3, 4, 5, 46)))
                 .isInstanceOf(IllegalArgumentException.class);
     }
+
+    @Test
+    void 보너스_번호가_로또_번호와_겹치면_예외가_발생한다() {
+        Lotto lotto = new Lotto(List.of(1, 2, 3, 4, 5, 6));
+        assertThatThrownBy(() -> lotto.hasDuplicateBonusNumber(6))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
 }
