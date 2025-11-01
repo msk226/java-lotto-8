@@ -62,5 +62,4 @@ class WinningLottoTest {
 
         assertThat(match).isEqualTo(expectedRank);
     }
-
 }

@@ -19,13 +19,25 @@ public enum Rank {
     }
 
     public static Rank of(int matchCount, boolean bonus) {
-        if (matchCount == 6) return FIRST;
-        if (matchCount == 5 && bonus) return SECOND;
-        if (matchCount == 5) return THIRD;
-        if (matchCount == 4) return FOURTH;
-        if (matchCount == 3) return FIFTH;
+        if (matchCount == 6) {
+            return FIRST;
+        }
+        if (matchCount == 5 && bonus) {
+            return SECOND;
+        }
+        if (matchCount == 5) {
+            return THIRD;
+        }
+        if (matchCount == 4) {
+            return FOURTH;
+        }
+        if (matchCount == 3) {
+            return FIFTH;
+        }
         return MISS;
     }
 
-    public int prize() { return prize; }
+    public int prize() {
+        return prize;
+    }
 }

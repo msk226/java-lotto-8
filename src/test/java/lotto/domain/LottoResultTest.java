@@ -57,5 +57,4 @@ class LottoResultTest {
 
         assertThat(totalPrize).isEqualTo(expectedPrize);
     }
-
 }

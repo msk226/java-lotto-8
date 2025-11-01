@@ -20,5 +20,4 @@ class LottoMachineTest {
         List<Lotto> tickets = lottoMachine.createMany(3);
         assertEquals(3, tickets.size());
     }
-
 }
